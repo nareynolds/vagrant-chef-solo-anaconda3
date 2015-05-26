@@ -26,7 +26,7 @@ Vagrant.configure(2) do |config|
   config.omnibus.chef_version = :latest
 
   # Activate Berkself plugin
-  config.berkshelf.enabled = true
+  #config.berkshelf.enabled = true
 
 
 
