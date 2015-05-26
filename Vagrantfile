@@ -19,8 +19,8 @@ Vagrant.configure(2) do |config|
   config.vm.network "private_network", ip: "192.168.33.10"
 
   # ssh
-  config.ssh.forward_x11 = true
-  config.ssh.forward_agent = true
+  #config.ssh.forward_x11 = true
+  #config.ssh.forward_agent = true
 
   # Install chef on the VM if required using the vagrant omnibus plugin
   config.omnibus.chef_version = :latest
@@ -51,8 +51,7 @@ Vagrant.configure(2) do |config|
 
     chef.run_list = [
       'recipe[anaconda::default]',
-      'recipe[anaconda::shell_conveniences]',
-      'recipe[anaconda::notebook_server]',
+      'recipe[anaconda-packages::default]',
     ]
 
   end
