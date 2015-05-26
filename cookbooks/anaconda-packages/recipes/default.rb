@@ -8,10 +8,6 @@
 #
 
 
-anaconda_package 'astroid' do
-  action :install
-end
-
 anaconda_package 'django' do
   action :install
 end
