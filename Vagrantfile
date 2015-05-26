@@ -19,15 +19,36 @@ Vagrant.configure(2) do |config|
   config.vm.network "private_network", ip: "192.168.33.10"
 
   # ssh
-  #config.ssh.forward_x11 = true
-  #config.ssh.forward_agent = true
+  config.ssh.forward_x11 = true
+  config.ssh.forward_agent = true
 
   # Install chef on the VM if required using the vagrant omnibus plugin
   config.omnibus.chef_version = :latest
 
-  # Activate Berkself plugin
-  #config.berkshelf.enabled = true
 
+  # dev optimization: anaconda's big, so put it in the cache for development if
+  # it's already been downloaded
+  [
+    'Anaconda-1.8.0-Linux-x86.sh',
+    'Anaconda-1.8.0-Linux-x86_64.sh',
+    'Anaconda-1.9.2-Linux-x86.sh',
+    'Anaconda-1.9.2-Linux-x86_64.sh',
+    'Anaconda-2.0.1-Linux-x86.sh',
+    'Anaconda-2.0.1-Linux-x86_64.sh',
+    'Anaconda-2.1.0-Linux-x86.sh',
+    'Anaconda-2.1.0-Linux-x86_64.sh',
+    'Anaconda-2.2.0-Linux-x86.sh',
+    'Anaconda-2.2.0-Linux-x86_64.sh',
+    'Anaconda3-2.2.0-Linux-x86.sh',
+    'Anaconda3-2.2.0-Linux-x86_64.sh',
+  ].each do |f|
+    if File.exists?(f)
+      config.vm.provision :shell do |shell|
+        shell.inline = 'if [[ ! -f $1 ]]; then cp $1 $2; fi'
+        shell.args = [ "/vagrant/#{f}",  '/var/chef/cache' ]
+      end
+    end
+  end
 
 
   # Use chef to provision this machine
@@ -36,11 +57,7 @@ Vagrant.configure(2) do |config|
     # Cookbooks directory path relative to this file
     # chef.cookbooks_path = "cookbooks"
 
-    # Specify recipes we want 'cooked'. Format is cookbook::recipe
-    #chef.add_recipe "build-essential"
-    #chef.add_recipe "python-build"
-
-    # specify python-build attirbutes
+    # specify anaconda installation attirbutes
     chef.json = {
       :anaconda => {
         :version => '3-2.2.0',
@@ -51,6 +68,8 @@ Vagrant.configure(2) do |config|
 
     chef.run_list = [
       'recipe[anaconda::default]',
+      'recipe[anaconda::shell_conveniences]',
+      #'recipe[anaconda::notebook_server]',
       'recipe[anaconda-packages::default]',
     ]
 
