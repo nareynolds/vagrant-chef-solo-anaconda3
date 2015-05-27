@@ -5,7 +5,7 @@ This file is used to list changes made in each version of the anaconda-packages 
 
 0.1.0
 -----
-- [your_name] - Initial release of anaconda-packages
+- nareynolds - Initial release of anaconda-packages
 
 - - -
 Check the [Markdown Syntax Guide](http://daringfireball.net/projects/markdown/syntax) for help with Markdown.

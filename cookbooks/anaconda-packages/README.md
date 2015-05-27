@@ -1,68 +1,35 @@
 anaconda-packages Cookbook
 ==========================
-TODO: Enter the cookbook description here.
+This cookbook is an example of how to install additional packages into Anaconda
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
 
 Requirements
 ------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
+- [Anaconda Cookbook](https://github.com/thmttch/chef-continuum-anaconda)
+- Anaconda dependencies:
+  - [apt](https://github.com/opscode-cookbooks/apt)
+  - [packagecloud](https://github.com/computology/packagecloud-cookbook)
+  - [runit](https://github.com/hw-cookbooks/runit)
 
-e.g.
-#### packages
-- `toaster` - anaconda-packages needs toaster to brown your bagel.
-
-Attributes
-----------
-TODO: List your cookbook attributes here.
-
-e.g.
-#### anaconda-packages::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['anaconda-packages']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
-  </tr>
-</table>
 
 Usage
 -----
 #### anaconda-packages::default
-TODO: Write usage instructions for each cookbook.
 
-e.g.
-Just include `anaconda-packages` in your node's `run_list`:
+Choose the packages you want install by modifying [recipes/default.rb](recipes/default.rb)
+
+Then, simply include `anaconda` and `anaconda-packages` in your node's `run_list`:
 
 ```json
 {
   "name":"my_node",
   "run_list": [
-    "recipe[anaconda-packages]"
+    "recipe[anaconda]",
+    "recipe[anaconda-packages]",
   ]
 }
 ```
 
-Contributing
-------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
+## Author
 
-e.g.
-1. Fork the repository on Github
-2. Create a named feature branch (like `add_component_x`)
-3. Write your change
-4. Write tests for your change (if applicable)
-5. Run the tests, ensuring they all pass
-6. Submit a Pull Request using Github
-
-License and Authors
--------------------
-Authors: TODO: List authors
+Author:: Nathaniel Reynolds (nathaniel.reynolds@gmail.com)
