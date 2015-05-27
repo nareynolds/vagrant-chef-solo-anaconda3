@@ -42,6 +42,9 @@ $vagrant> conda --version
 conda 3.10.0
 
 # and have fun...
+
+# exit your VM
+$vagrant> exit
 ```
 
 Include any additional packages you want install by modifying [cookbooks/anaconda-packages/recipes/default.rb](cookbooks/anaconda-packages/recipes/default.rb).
