@@ -7,14 +7,14 @@
 # All rights reserved - Do Not Redistribute
 #
 
-# install rpy2 into Anaconda
+# Example: install rpy2 into Anaconda
 anaconda_package 'rpy2' do
   action :install
 end
 
-# install django into Anaconda
+# Example: install django into Anaconda
 anaconda_package 'django' do
   action :install
 end
 
-# and repeat as needed...
+# change and/or repeat as needed...

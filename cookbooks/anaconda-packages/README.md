@@ -32,4 +32,4 @@ Then, simply include `anaconda` and `anaconda-packages` in your node's `run_list
 
 ## Author
 
-Author:: Nathaniel Reynolds (nathaniel.reynolds@gmail.com)
+Nathaniel Reynolds (nathaniel.reynolds@gmail.com)

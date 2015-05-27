@@ -20,7 +20,7 @@ All the necessary cookbooks are provided in this repo:
 
 ## Quickstart
 
-The [Vagrantfile](Vagrantfile) is written to get your Anaconda environment up and running with minimal effort (though it will take at least a few minutes to download the Anaconda installer itself):
+The [Vagrantfile](Vagrantfile) is written to get your Anaconda environment up and running with minimal effort (though it will take at least a few minutes to download the Anaconda installer itself).
 
 ```bash
 # change working directory
@@ -41,11 +41,11 @@ conda 3.10.0
 ...
 ```
 
-You can any additional packages you want install by modifying [cookbooks/anaconda-packages/recipes/default.rb](cookbooks/anaconda-packages/recipes/default.rb).
+Include any additional packages you want install by modifying [cookbooks/anaconda-packages/recipes/default.rb](cookbooks/anaconda-packages/recipes/default.rb).
 
 ## The Anaconda Cookbook
-More details about using the Anaconda cookbook can be found at it's repo: [https://github.com/thmttch/chef-continuum-anaconda](https://github.com/thmttch/chef-continuum-anaconda)
+This awesome cookbook and more details about using it can be found at it's repo: [https://github.com/thmttch/chef-continuum-anaconda](https://github.com/thmttch/chef-continuum-anaconda)
 
 ## Author
 
-Author:: Nathaniel Reynolds (nathaniel.reynolds@gmail.com)
+Nathaniel Reynolds (nathaniel.reynolds@gmail.com)
