@@ -7,6 +7,9 @@
 # All rights reserved - Do Not Redistribute
 #
 
+anaconda_package 'rpy2' do
+  action :install
+end
 
 anaconda_package 'django' do
   action :install

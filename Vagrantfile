@@ -22,7 +22,7 @@ Vagrant.configure(2) do |config|
   config.ssh.forward_x11 = true
   config.ssh.forward_agent = true
 
-  # Install chef on the VM if required using the vagrant omnibus plugin
+  # Install lastest chef on the VM using the vagrant omnibus plugin
   config.omnibus.chef_version = :latest
 
 
@@ -55,7 +55,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "chef_solo" do |chef|
 
     # Cookbooks directory path relative to this file
-    # chef.cookbooks_path = "cookbooks"
+    chef.cookbooks_path = "cookbooks"
 
     # specify anaconda installation attirbutes
     chef.json = {
@@ -66,6 +66,7 @@ Vagrant.configure(2) do |config|
       }
     }
 
+    # specify the chef run list
     chef.run_list = [
       'recipe[anaconda::default]',
       'recipe[anaconda::shell_conveniences]',
