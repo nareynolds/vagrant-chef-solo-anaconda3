@@ -57,7 +57,7 @@ Vagrant.configure(2) do |config|
     # Cookbooks directory path relative to this file
     chef.cookbooks_path = "cookbooks"
 
-    # specify anaconda installation attirbutes
+    # specify anaconda installation attributes
     chef.json = {
       :anaconda => {
         :version => '3-2.2.0',
